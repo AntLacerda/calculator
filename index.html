@@ -12,6 +12,7 @@
     <div class="alinhamento">
         <div>
             <div class="resultado" id="resultado"></div>
+            <div class="fundo"><div class="botao_theme" onclick="mudaTheme()"><div class="bolinha"  id="bolinha" ></div></div></div>
         </div>
         <div class="alinhamento_menor">
             <div class="estilo" onclick="capturar('7')">7</div>
@@ -49,6 +50,7 @@
         let resp=0;
         let continua=0;/*-------------------*/
         let resultado_final = document.getElementById("resultado");
+        let contador=0;
 
         const capturar = (num) => {
             let valor = String(num);
@@ -145,6 +147,16 @@
                 resp = resp - Number(n1[pos]);
                 //resp = Number(n1[pos-1]) - Number(n1[pos]);
                 resultado_final.innerHTML = resp;
+            }
+        }
+
+        const mudaTheme = () => {
+            if(contador===0){
+                document.getElementById("bolinha").style.marginLeft="20px";
+                contador++;
+            }else{
+                document.getElementById("bolinha").style.marginLeft="0px";
+                contador--;
             }
         }
 
