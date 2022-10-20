@@ -7,7 +7,13 @@
     cursor: pointer;
     font-size: 22px;
     font-family: 'Roboto', sans-serif;
+    transition: 300ms;
 }
+.estilo:hover{
+    background-color: #080075;
+
+}
+
 
 .alinhamento{
     display: flex;
@@ -78,4 +84,28 @@
     font-size: 22px;
     font-family: 'Roboto', sans-serif;
     padding-right: 47px;
+}
+
+.botao_theme{
+    border: 1px solid white;
+    width: 40px;
+    height: 20px;
+    background-color: #172d68;
+    border-radius: 20px;
+
+}
+
+.fundo{
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: #172d68;
+}
+
+.bolinha{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 100%;
+    margin-left: 0px;
+    transition: 500ms;
 }
