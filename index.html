@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+    <div class="alinhamento">
+        <div>
+            <div class="resultado" id="resultado"></div>
+        </div>
+        <div class="alinhamento_menor">
+            <div class="estilo" onclick="capturar('7')">7</div>
+            <div class="estilo" onclick="capturar('8')">8</div>
+            <div class="estilo" onclick="capturar('9')">9</div>
+            <div class="especial_1" onclick="divide()" id="especial_1"><img class="img_menor" src="./img/divisão.png" alt=""></div>
+        </div>
+        <div class="alinhamento_menor">
+            <div class="estilo" onclick="capturar('4')">4</div>
+            <div class="estilo" onclick="capturar('5')">5</div>
+            <div class="estilo" onclick="capturar('6')">6</div>
+            <div class="especial_2" onclick="multiplica()" id="especial_2"><img class="img_menor" src="./img/mult.png" alt=""></div>
+        </div>
+        <div class="alinhamento_menor">
+            <div class="estilo" onclick="capturar('1')">1</div>
+            <div class="estilo" onclick="capturar('2')">2</div>
+            <div class="estilo" onclick="capturar('3')">3</div>
+            <div class="especial_3" onclick="subtrai()" id="especial_3"><img class="img_menor" src="./img/menos.png" alt=""></div>
+        </div>
+        <div class="alinhamento_menor">
+            <div class="estilo" onclick="capturar('0')">0</div>
+            <div class="estilo" onclick="capturar('.')">.</div>
+            <div class="especial_p_krl" onclick="resultado('=')" id="especial_p_krl">=</div>
+            <div class="especial_4" onclick="soma()" id="especial_4"><img class="img_menor" src="./img/mais.png" alt=""></div>
+        </div>
+    </div>
+
+
+    <script>
+        let n1 = [];
+        n1[0] = " ";
+        n1[1] = " ";
+        let pos = 0;
+        let operador = [];
+        let resp=0;
+        let continua=0;/*-------------------*/
+        let resultado_final = document.getElementById("resultado");
+
+        const capturar = (num) => {
+            let valor = String(num);
+            n1[pos] = n1[pos] + valor;
+            resultado_final.innerHTML = n1[pos];
+        }
+
+        const soma = () => {
+            if(continua>=1){
+                resultado();
+                continua++;
+                resultado_final.innerHTML = resp;
+            }
+            pos++;
+            n1[pos] = ' ';
+            operador[0] = "+";
+            if(pos===1){
+                resp = Number(n1[0]);
+            }
+            continua++;
+            
+            console.log(operador[0]);
+        }
+
+        const subtrai = () => {
+            if(continua>=1){
+                resultado();
+                continua++;
+                resultado_final.innerHTML = resp;
+            }
+            pos++;
+            n1[pos] = ' ';
+            operador[0] = "-";
+            if(pos===1){
+                resp = Number(n1[0]);
+            }
+            continua++;
+            console.log(operador[0]);
+        }
+
+        const divide = () => {
+            if(continua>=1){
+                resultado();
+                continua++;
+                resultado_final.innerHTML = resp;
+            }
+            pos++;
+            n1[pos] = ' ';
+            operador[0] = "/";
+            if(pos===1){
+                resp = Number(n1[0]);
+            }
+            continua++;
+            console.log(operador[0]);
+        }
+
+        const multiplica = () => {
+            if(continua>=1){
+                resultado();
+                continua++;
+                resultado_final.innerHTML = resp;
+            }
+            pos++;
+            n1[pos] = ' ';
+            operador[0] = "x";
+            if(pos===1){
+                resp = Number(n1[0]);
+            }
+            continua++;
+            console.log(operador[0]);
+        }
+
+        const resultado = (igual) => {
+            let aux = igual;
+
+            if(aux==='='){
+                continua = 0;
+            }
+
+
+            if(operador[0]==="+"){
+                resp = resp + Number(n1[pos]);
+                //resp = Number(n1[pos-1]) + Number(n1[pos]);
+                resultado_final.innerHTML = resp;
+            }else if(operador[0]==="x"){
+                resp = resp * Number(n1[pos]);
+                //resp = Number(n1[pos-1]) * Number(n1[pos]);
+                resultado_final.innerHTML = resp;
+            }else if(operador[0]==="/"){
+                resp = resp / Number(n1[pos]);
+                //resp = Number(n1[pos-1]) / Number(n1[pos]);
+                resultado_final.innerHTML = resp;
+            }else if(operador[0]==="-"){
+                resp = resp - Number(n1[pos]);
+                //resp = Number(n1[pos-1]) - Number(n1[pos]);
+                resultado_final.innerHTML = resp;
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
